@@ -1,3 +1,4 @@
 # printer_flutter_app
 
-A new Flutter project.
+
+[Server repo](https://github.com/sree-vignesh/printease_server)
