@@ -33,9 +33,11 @@ dependencies:
   http: ^0.13.3 # HTTP package to send requests
   file_picker: ^5.0.1
   provider: ^6.0.5
+  curved_navigation_bar: ^1.0.6
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  google_fonts: ^4.0.4
 
 dev_dependencies:
   flutter_test:

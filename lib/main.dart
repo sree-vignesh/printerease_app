@@ -5,6 +5,8 @@ import 'Screens/upload.dart';
 import 'Screens/accounts.dart';
 import 'Providers/rollno_provider.dart';
 import 'Providers/serverurl.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   // runApp(
@@ -61,26 +63,40 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  final List<String> _titles = [
+    'My Documents',
+    'New Upload',
+    'My Account',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: _screens[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
+      appBar: AppBar(
+        title: Padding(
+          padding: const EdgeInsets.only(left: 16.0),
+          child: Text(
+            _titles[_currentIndex],
+            style: GoogleFonts.commissioner(),
+          ),
+        ), // Dynamic title
+        centerTitle: false, // Centers the title
+        backgroundColor: Colors.white10, // Matches the app theme
+      ),
+      bottomNavigationBar: CurvedNavigationBar(
+        index: _currentIndex,
         onTap: _onTabTapped,
+        backgroundColor: Colors.transparent, // Adjust based on app background
+
+        // color: const Color.fromARGB(255, 27, 27, 27), // Navigation bar color
+        color: Colors.deepPurple,
+        buttonBackgroundColor: Colors.deepPurple, // Active icon background
+        animationDuration: const Duration(milliseconds: 300),
         items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.folder),
-            label: 'Documents',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.upload_file),
-            label: 'Upload',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
-            label: 'Accounts',
-          ),
+          Icon(Icons.folder, size: 30, color: Colors.white),
+          Icon(Icons.upload_file, size: 30, color: Colors.white),
+          Icon(Icons.account_circle, size: 30, color: Colors.white),
         ],
       ),
     );

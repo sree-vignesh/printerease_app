@@ -86,10 +86,54 @@ class _DocumentsScreenState extends State<DocumentsScreen> {
                       itemCount: _files.length,
                       itemBuilder: (context, index) {
                         final entry = _files[index];
-                        return ListTile(
-                          title: Text(entry.value), // Original file name
-                          subtitle: Text(entry.key), // Identifier
-                          leading: const Icon(Icons.picture_as_pdf),
+                        return Card(
+                          elevation: 10, // Controls the shadow intensity
+                          shadowColor: Colors.grey.withOpacity(
+                              0.8), // Shadow color and transparency
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(
+                                8), // Optional rounded corners
+                          ),
+                          child: ListTile(
+                            title: Text(entry.value), // Original file name
+                            subtitle: Text(entry.key), // Identifier
+                            leading: const Icon(Icons.picture_as_pdf),
+                            onTap: () {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: Text(entry
+                                        .value), // Dynamic title with object name
+                                    content: const Text("Choose an action:"),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.of(context)
+                                              .pop(); // Close dialog
+                                        },
+                                        child: const Text("Cancel"),
+                                      ),
+                                      TextButton(
+                                        onPressed: () {
+                                          // Add logic to view object (e.g., open a PDF)
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: const Text("View"),
+                                      ),
+                                      TextButton(
+                                        onPressed: () {
+                                          // Add logic for "OK" action
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: const Text("OK"),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            },
+                          ),
                         );
                       },
                     )

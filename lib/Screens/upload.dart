@@ -83,12 +83,12 @@ class _UploadScreenState extends State<UploadScreen> {
         var jsonResponse = json.decode(responseBody);
         setState(() {
           _responseMessage =
-              'Upload successful! Identifier: ${jsonResponse['identifier']}';
+              'Upload successful ! \nIdentifier: ${jsonResponse['identifier']}';
         });
       } else {
         setState(() {
           _responseMessage =
-              'Upload failed. Status code: ${response.statusCode}';
+              'Upload failed. \nStatus code: ${response.statusCode}';
         });
       }
     } catch (e) {
@@ -116,23 +116,25 @@ class _UploadScreenState extends State<UploadScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text(rollNo),
-                    const SizedBox(height: 20),
-                    const SizedBox(height: 20),
-                    const Text(
-                      'Choose a PDF to upload',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(height: 20),
+                    // Text(rollNo),
+                    // const SizedBox(height: 20),
+                    // const SizedBox(height: 20),
+                    // const Text(
+                    //   'Choose a PDF to upload',
+                    //   style:
+                    //       TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    // ),
+                    // const SizedBox(height: 20),
                     ElevatedButton(
                       onPressed: _pickFile,
-                      child: const Text('Pick a PDF File'),
+                      child: const Text(
+                        'Pick a PDF File',
+                      ),
                     ),
                     const SizedBox(height: 20),
                     if (_selectedFile != null)
                       Text(
-                          'Selected file: ${_selectedFile!.path.split('/').last}'),
+                          'Selected file : ${_selectedFile!.path.split('/').last}'),
                     const SizedBox(height: 20),
                     if (_selectedFile != null)
                       ElevatedButton(
