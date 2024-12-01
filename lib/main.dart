@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   final List<String> _titles = [
-    'My Documents',
+    'Documents',
     'New Upload',
     'My Account',
   ];
